@@ -32,9 +32,6 @@ jobs:
 
       - name: Terraform Init
         working-directory: terraform
-        run: terraform init
-
-        working-directory: terraform
-        run: terraform plan -out=tfplan
+        run: terraform init &&  terraform plan -out=tfplan
 
 
