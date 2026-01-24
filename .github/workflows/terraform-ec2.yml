@@ -1,37 +1,23 @@
-name: Terraform EC2
+name: Ansible Deploy (Web=Nginx, App=Java)
 
 on:
-  push:
-    branches: ["test"]
   workflow_dispatch: {}
 
-
 jobs:
-  terraform:
+  run-ansible:
     runs-on: ubuntu-latest
-    env:
-      TF_IN_AUTOMATION: "true"
-      TF_INPUT: "false"
-      AWS_REGION: "eu-west-1" # change if you want
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+          python-version: "3.x"
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v3
-        with:
-          terraform_version: 1.6.6
-
-      - name: Terraform Init
-        working-directory: terraform2
-        run: terraform init &&  terraform plan -out=tfplan
-
-
+      - name: Install Ansible
+        run: |
+          python -m pip install --upgrade pip
+          pip install ansible
+          ansible --version
