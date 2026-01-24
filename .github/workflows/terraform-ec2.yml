@@ -2,7 +2,8 @@ name: Ansible Deploy (Web=Nginx, App=Java)
 
 on:
   workflow_dispatch: {}
-  branches: ["work"]
+  push:
+   branches: ["work"]
 
 jobs:
   run-ansible:
