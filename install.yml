@@ -1,0 +1,11 @@
+---
+- name: Install Java on Amazon Linux
+  hosts: target
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Install Java (Amazon Corretto 17)
+      package:
+        name: java-17-amazon-corretto
+        state: present
