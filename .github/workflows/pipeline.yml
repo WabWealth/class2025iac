@@ -40,4 +40,4 @@ jobs:
           
         run: |
           ansible --version
-          ansible-playbook -i inventory.ini install_java.yml -C
+          ansible-playbook -i inventory.ini install.yml -C
