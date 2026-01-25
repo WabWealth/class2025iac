@@ -37,6 +37,7 @@ jobs:
       - name: Run playbook
         env:
           ANSIBLE_HOST_KEY_CHECKING: "False"
+          
         run: |
           ansible --version
           ansible-playbook -i inventory.ini install_java.yml -C
