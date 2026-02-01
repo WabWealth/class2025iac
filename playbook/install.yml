@@ -13,7 +13,7 @@
     - name: Start Service
       service:
         name: nginx
-        state: {{ nginx_state}}
+        state: "{{ nginx_state }}"
         enabled: yes
 
     - name: create assets directory
