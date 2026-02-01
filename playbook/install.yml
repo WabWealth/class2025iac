@@ -15,3 +15,9 @@
         name: nginx
         state: started
         enabled: yes
+
+    - name: copy index file 
+      ansible.builtin.copy:
+        src: ../nginx-artefacts/index.html
+        dest: /usr/share/nginx/html/index.html
+
