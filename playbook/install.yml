@@ -22,8 +22,8 @@
         state: directory
 
     - name: copy index file 
-      ansible.builtin.copy:
-        src: ../nginx-artefacts/index.html
+      ansible.builtin.template:
+        src: index.html.j2
         dest: /usr/share/nginx/html/index.html
 
     - name: copy js file 
