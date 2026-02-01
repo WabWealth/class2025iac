@@ -27,4 +27,4 @@ jobs:
           
         run: |
           ls -ltr
-          ansible-playbook -i inventory/hosts.ini playbook/install.yml  -e "site_name='SundayClass'"
+          ansible-playbook -i inventory/hosts.ini playbook/install.yml  -e "site_name='SundayClass'" -vvvv
