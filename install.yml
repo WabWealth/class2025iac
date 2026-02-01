@@ -1,11 +1,11 @@
 ---
-- name: Install Java on Amazon Linux
-  hosts: target
+- name: Install Nginx
+  hosts: web
   become: true
   gather_facts: true
 
   tasks:
-    - name: Install Java (Amazon Corretto 17)
+    - name: Install Nginx on Target Node
       package:
-        name: java-17-amazon-corretto
+        name: nginx
         state: present
