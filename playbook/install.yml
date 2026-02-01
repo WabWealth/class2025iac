@@ -16,8 +16,24 @@
         state: started
         enabled: yes
 
+    - name: create assets directory
+      ansible.builtin.file:
+        path: /usr/share/nginx/html/assets
+        state: directory
+
     - name: copy index file 
       ansible.builtin.copy:
         src: ../nginx-artefacts/index.html
         dest: /usr/share/nginx/html/index.html
+
+    - name: copy js file 
+      ansible.builtin.copy:
+        src: ../nginx-artefacts/assets/app.js 
+        dest: /usr/share/nginx/html/assets/app.js
+
+    - name: copy css file
+      ansible.builtin.copy:
+        src: ../nginx-artefacts/assets/styles.css 
+        dest: /usr/share/nginx/html/assets/styles.css
+
 
